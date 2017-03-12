@@ -1,0 +1,33 @@
+{
+  "name": "study-non-relative-import",
+  "version": "0.0.0",
+  "description": ":microscope: Studying how to use non relative path in node environnement",
+  "main": "lib/@get-port/index.js",
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "get-port": "lib/@get-port/cli/index.js"
+  },
+  "scripts": {
+    "serve:cli": "nodemon -w lib -x \"node lib/@get-port/cli/index.js\"",
+    "build": "tsc",
+    "preversion": "npm run build",
+    "serve:tsc": "tsc -w",
+    "serve": "concurrently --prefix \"[{name}]\" --names \"serve:tsc,serve:cli\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run serve:tsc\" \"npm run serve:cli\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Douglas Duteil <douglasduteil@gmail.com> (douglasduteil.github.io)",
+  "license": "WTFPL",
+  "devDependencies": {
+    "@types/node": "^7.0.8",
+    "concurrently": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0"
+  }
+}
